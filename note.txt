@@ -1,0 +1,19 @@
+A time series is data collected or measured over time.
+
+Cleaning
+Date is converted from object → datetime
+Data is sorted by Date
+Then interpolate Marketing_Spend
+Check that 0 missing values remain in Marketing_Spend.
+
+EDA
+Step 1 — Establish the time range.Before calculating anything, find:
+Minimum Date
+Maximum Date
+Number of days covered
+Then calculate these basic KPIs:
+Total Sales
+Average Daily Sales
+Total Orders
+Total Customers
+Total Returns
