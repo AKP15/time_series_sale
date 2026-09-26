@@ -1,0 +1,7 @@
+Business Insights
+You can use these points:
+Sales show a clear long-term upward trend from 2023 to 2025, although daily sales remain volatile.
+Seasonality is evident. December is the strongest month, with average sales about 32.5% above the overall monthly average, while September is the weakest at about 17.5% below it.
+The 7-day moving average provides a useful short-term baseline by smoothing daily fluctuations while still responding relatively quickly to recent sales changes.
+The 7-day forecast had MAE of $214.29 and RMSE of $322.42, compared with $215.54 and $324.58 for the 30-day baseline.
+Large forecast errors occur during unusual events and seasonal transitions. The two largest errors came from negative-sales/refund days, while several other large errors occurred at the beginning of January.

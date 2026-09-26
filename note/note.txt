@@ -1,0 +1,80 @@
+A time series is data collected or measured over time.
+
+Cleaning
+Date is converted from object → datetime
+Data is sorted by Date
+Then interpolate Marketing_Spend
+Check that 0 missing values remain in Marketing_Spend.
+
+EDA
+Step 1 — Establish the time range.Before calculating anything, find:
+Minimum Date
+Maximum Date
+Number of days covered
+Then calculate these basic KPIs:
+Total Sales
+Average Daily Sales
+Total Orders
+Total Customers
+Total Returns
+
+
+1. Overall trend → upward 📈
+Sales generally increase from 2023 → 2024 → 2025.
+2023 starts around the lower range.
+2024 is generally higher.
+2025 reaches the highest levels, especially toward the end of the year.
+So the business appears to have positive long-term sales growth.
+2. Strong daily volatility
+There are many day-to-day fluctuations around the general trend.
+That means daily sales alone are noisy, so it will be difficult to see the underlying pattern clearly.
+This leads us naturally to our next technique:
+Moving Average
+3. Two major negative outliers
+You can clearly see two sharp drops below zero.
+Those correspond to the refund/return transactions we investigated earlier:
+-500
+-750
+We should keep them, but recognize them as unusual observations rather than normal sales behavior.
+4. Possible seasonal pattern
+I can also see repeated rises and falls within the years. But we shouldn't call this seasonality yet.
+
+
+Calculate Seasonal Index
+Seasonal Index = Average sales for that month ÷ Overall monthly average
+Interpretation:
+Index > 1 → month tends to be above average
+Index < 1 → month tends to be below average
+Index = 1 → approximately average
+
+Business interpretation
+December is the strongest seasonal month.
+An index of 1.325 means December's average sales are about 32.5% above the overall monthly average.
+September is the weakest.
+Its index of 0.825 means sales are about 17.5% below the overall monthly average.
+The pattern looks roughly like:
+Jan ↓ → Feb ↓ → Mar–Jun ↑ → Jul–Oct ↓ → Nov ↑ →( Dec )
+
+Moving Average
+7-day moving average
+
+Growth rate
+Month-over-Month (MoM) Growth.
+January: NaN is correct because there is no previous month to compare.
+February: sales were almost unchanged → -0.02%
+March: strong growth → +23.50%
+April: almost unchanged → -0.13%
+May: moderate growth → +5.16%
+June: sales declined → -3.45%
+July: larger decline → -9.78%
+Important analyst idea
+MoM growth tells you the direction and speed of change, while the moving average tells you the underlying trend.
+
+Business takeaway
+The 7-day moving-average forecast is useful for estimating the general short-term sales level, but it is less effective during sudden sales changes because it reacts after the change occurs.
+
+The moving-average baseline captures the overall sales trend but struggles with sudden events and seasonal transitions. The largest forecast errors occurred during exceptional negative-sales days and the beginning of January, when sales were substantially lower than the preceding period.
+
+
+
+
