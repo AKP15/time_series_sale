@@ -1,0 +1,67 @@
+"The purpose of this project was to analyze a retail company's historical daily sales and understand how sales changed over time. I wanted to identify the overall trend, seasonal patterns, monthly growth, and sales volatility, and then build a simple baseline forecast for short-term sales planning."
+
+Step 1 — Data Cleaning
+"First, I inspected the dataset for missing values, duplicates, incorrect data types, and unusual sales values."
+You found:
+5 missing Marketing Spend values
+Date stored as object
+negative sales associated with return/refund events
+apparent duplicate-looking rows that were actually different records
+You converted the date to datetime and interpolated the missing Marketing Spend values because this was time-series data.
+Step 2 — KPI Analysis
+You calculated:
+Total Sales → $3.68M
+Average Daily Sales → $3,346.97
+Total Orders → 39,081
+Total Returns → 1,738
+Interview explanation:
+"I established the key business KPIs first so I had a baseline understanding of the company's sales performance."
+Step 3 — Trend Analysis
+You plotted daily sales and a 7-day moving average.
+Interview answer:
+"Daily sales were quite volatile, so I used a 7-day moving average to smooth the daily noise and identify the underlying trend."
+Finding:
+"The business showed an overall upward sales trend from 2023 through 2025."
+Step 4 — Seasonality Analysis
+You aggregated sales by month across the three years.
+Important finding:
+"December was the strongest seasonal month, approximately 32.5% above the overall monthly average, while September was approximately 17.5% below it."
+Interview interpretation:
+"This suggests the company experiences recurring seasonal demand, which could be useful for inventory, staffing, and marketing planning."
+Step 5 — Growth & Volatility
+You calculated:
+MoM Growth
+7-day rolling standard deviation
+Interview answer:
+"I used month-over-month growth to understand how quickly sales were changing, and rolling standard deviation to measure short-term sales volatility."
+So you're not just saying sales went up.
+You're asking:
+How fast are sales changing?
+and
+How stable or volatile are sales?
+Step 6 — Forecasting
+You used a 7-day moving average as a baseline forecast.
+Interview answer:
+"For forecasting, I started with a simple baseline rather than jumping directly to a complex model. I used the previous 7 days of sales to estimate the next day's sales."
+You also tested a 30-day baseline.
+Results:
+Model
+MAE
+RMSE
+7-day MA
+$214.29
+$322.42
+30-day MA
+$215.54
+$324.58
+Interview answer:
+"The 7-day baseline produced slightly lower MAE and RMSE on this dataset, so I used it as the main baseline."
+Step 7 — Error Analysis
+This is a very good interview point.
+You didn't stop at MAE/RMSE.
+You investigated the largest errors.
+You found:
+2025-04-30: actual sales -$750
+2023-10-28: actual sales -$500
+These were unusual refund/return events.
+You also found several large errors around the beginning of January.
